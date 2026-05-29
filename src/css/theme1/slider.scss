@@ -1,0 +1,55 @@
+/* SLIDER */
+.dQuestion[qtype="slider"] {
+    .dFormGroup .title .content{
+    display:inline-block;
+    }
+    .dRow:last-child .dSlider{
+      margin-bottom:0vmin;
+
+    }
+
+  .wc{
+    display:inline-block;
+    margin-block-start: 1vmin;
+    margin-block-end: 1vmin;
+  } 
+  .wc .dInput{ 
+      padding-right:1vmin;
+      padding-left:1vmin;
+  }
+  .pointerObjs{
+    position:absolute;
+    width:100%;
+    height: var(--slider-height, 3vmin);
+    top:0px;
+    left:0px;
+    pointer-events: none;
+  }
+
+  .pointerObjs::after{
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    background: transparent;
+    transform: translateY(-50%);
+    z-index:-1;
+    height: 0vmin;
+    border-bottom: 1vmin solid #cacaca;
+}
+
+
+  .pointerObjs > div{
+    width:3vmin;
+    height:3vmin;
+    margin-top:-.2vmin;
+    top:50%;
+    left:0px;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:white;
+    position:absolute;
+    border: 0.5vmin solid #cacaca;
+
+  }
+}

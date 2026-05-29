@@ -1,0 +1,54 @@
+    //FORM
+    .dQuestion[qtype="form"] > .body > .choices > .content{
+        .dFormGroup{
+          position:relative;
+          min-width:100%;      
+        }
+        .dFormGroup th{
+          vertical-align: top;
+          text-align:right;
+          font-size: $font-sm;
+          width:50%;
+          padding:1vmin;
+          
+        }
+        .dFormGroup td{
+          vertical-align: top;
+          text-align:left;
+          font-size: $font-sm;
+          width:50%;
+        }
+
+    }
+
+   /* SINGLE TEXTBOX */
+    .dQuestion[qtype="singleTextbox"] > .body > .choices > .content{
+      .dInput input{
+        width:100%;
+      }
+      .singleTextboxCont{
+        position:relative;
+        // max-width:550px;
+      }
+    }
+
+    @media only screen and (max-width: 700px), screen and (max-height: 400px) {
+      .dQuestion[qtype="singleTextbox"] > .body > .choices > .content{
+          .dInput{
+            width:100%;
+          }
+      }
+    }
+
+/* MULTIPLE TEXTBOX */
+    .dQuestion[qtype="multipleTextbox"] > .body > .choices > .content{
+        .dInput input{
+          width:100%;
+        }
+        .multipleTextboxCont{
+          position:relative;
+        }
+        .dWarn {
+          margin-top: 1vmin;
+       }
+    }

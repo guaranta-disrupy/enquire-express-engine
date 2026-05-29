@@ -1,0 +1,2 @@
+if CERT_HAS_EXPIRED error
+Solution : npm config set strict-ssl false

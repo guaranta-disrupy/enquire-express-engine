@@ -1,0 +1,211 @@
+/* SLIDER */
+.dSlider{
+  margin-bottom:8vmin;
+
+  .dFormGroup > .title{
+    position:relative;
+    margin-bottom:2vmin;
+    left:50%;
+    transform: translateX(-50%);
+    width:calc(100% - (100% / var(--labels)));
+    text-align:center;
+    font-size:var(--font-lg);
+  }
+  .dFormGroup > .body{
+    position:relative;
+    left:50%;
+    transform: translateX(-50%);
+    width:calc(100% - (100% / var(--labels)));
+  }
+
+
+  .slider-horizontal {
+      height: var(--slider-height,3vmin);
+  }
+  .slider-horizontal .slider-handle {
+    width: var(--slider-handle-width,5vmin);
+    height: var(--slider-handle-height,5vmin);
+    top: calc(var(--slider-handle-height, 5vmin)/2*-1 - var(--slider-height, 6px)/2*-1 + 1vmin);
+    right: calc(var(--slider-handle-width, 5vmin)/2*-1);
+   }
+   .slider-horizontal .slider-tooltip {
+      bottom: calc(var(--slider-handle-height, 4vmin) + var(--slider-tooltip-arrow-size, .5vmin) + var(--slider-tooltip-distance, .3vmin));
+    }
+    .slider-connect {
+      background: var(--color,#d1d5db);
+      display:none;
+    }
+    .slider-tooltip {
+      color: var(--slider-tooltip-color,#fff);
+      border-radius: var(--slider-tooltip-radius,5px);
+      border: 1px solid var(--slider-tooltip-bg,var(--ssrcolor3));
+      background: var(--slider-tooltip-bg,var(--ssrcolor3));
+  }
+
+  .slider-handle {
+      background: var(--color,#fff);
+      border: .5vmin solid var(--slider-line-color);
+      box-shadow: unset;
+  }
+
+
+  .labels{
+     position:relative;
+     width:calc(100% + (100% / var(--labels)));
+     left:50%;
+     transform:translateX(-50%);
+     margin-top: 1vmin;
+     padding-bottom: 2vmin;
+  }
+
+
+  .labels > .label{
+    display:inline-block;
+    width:calc(100% / var(--labels));
+    vertical-align: top;
+    text-align: center;
+    font-size:var(--font-xs);
+    font-weight: 700;
+    padding: 1vmin .5vmin;
+    color: black;
+    position:relative;
+  }
+  .labels > .label.active{
+    color:var(--active);
+    transform:scale(1.2);
+    transition:transform .3s linear;
+  }
+
+
+    // .slider-active {
+    //   box-shadow: var(--slider-handle-shadow-active,.5px .5px 2px 1px rgba(0,0,0,0));
+    // }
+
+  .slider-base {
+      background-color: transparent;
+  }
+
+
+}
+.dSlider.notselected{
+    .slider-connect {
+      background: #d1d5db;
+    }
+    .slider-handle {
+      background: var(--slider-default-selected-color);
+      cursor: w-resize;
+  }
+}
+
+
+.dFormGroup {
+  position:relative;
+  margin-bottom: 2vmin;
+}
+
+
+
+
+.dQuestion[qtype="slider"] {
+    .choices > .content {
+      position: relative;
+    }
+    .dFormGroup .title .content{
+    display:inline-block;
+    color:var(--slider-lbl-color);
+    }
+    .dRow:last-child .dSlider{
+      margin-bottom:0vmin;
+
+    }
+
+  .wc{
+    display:inline-block;
+    margin-block-start: 1vmin;
+    margin-block-end: 1vmin;
+  } 
+  .wc .dInput{ 
+      padding-right:1vmin;
+      padding-left:1vmin;
+  }
+  .pointerObjs{
+    position:absolute;
+    width:100%;
+    height: var(--slider-height, 3vmin);
+    top:0px;
+    left:0px;
+    // pointer-events: none;
+  }
+
+  .pointerObjs::after{
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    background: transparent;
+    transform: translateY(-50%);
+    z-index:-1;
+    height: 0vmin;
+    border-bottom: 1vmin solid var(--slider-line-color);
+}
+
+
+  .pointerObjs > div{
+    width:3vmin;
+    height:3vmin;
+    margin-top:-.2vmin;
+    top:50%;
+    left:0px;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    //background:white;
+    background:var(--slider-default-color);
+    position:absolute;
+    border: 0.5vmin solid var(--slider-line-color);
+
+  }
+}
+
+
+
+/* Smooth Enter Animation */
+.oaat_animation-enter-from {
+  opacity: 0;
+  transform: translateX(30px) translateY(10px);
+}
+
+.oaat_animation-enter-active {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.25s;
+}
+
+.oaat_animation-enter-to {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+/* Smooth Leave Animation */
+.oaat_animation-leave-from,
+.oaat_animation-leave-active,
+.oaat_animation-leave-to {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  pointer-events: none;
+}
+
+.oaat_animation-leave-from {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+.oaat_animation-leave-active {
+  transition: all 0.4s cubic-bezier(0.4, 0, 1, 1);
+  z-index: 1;
+}
+
+.oaat_animation-leave-to {
+  opacity: 0;
+  transform: translateX(-30px) translateY(-10px);
+}

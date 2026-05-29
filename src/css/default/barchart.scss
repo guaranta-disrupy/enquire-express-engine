@@ -1,0 +1,286 @@
+/* BARCHART SUM */
+.dQuestion[qtype="barchart"] {
+
+    
+    .highcharts-container {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .choices > .content{
+      // display:grid;
+      // grid-template-columns: 1fr 50vmin;
+      display:flex;
+      flex-direction: row-reverse;
+      flex-wrap: wrap-reverse;
+      justify-content: center;
+      margin-top:4vmin;
+      align-items: flex-end;
+    }
+
+    .section:nth-child(1){
+      position:relative;
+      //width:calc(100% - 500px);
+      display:inline-block;
+      vertical-align: top;
+      z-index:1;
+      flex-grow: 1;
+    }
+    .section:nth-child(2){
+      position: relative;
+      display:inline-block;
+      vertical-align: top;
+      max-width: 550px;
+      min-width: 40%;
+      z-index:2;
+    }
+  //   .slider-connect {
+  //     background: var(--ssrcolor3);
+  //  }
+
+
+    .dConstantSumTbl{
+       border-collapse:collapse;
+       width:100%;
+       border:.1vmin solid var(--tbl-border-color);
+       font-size:var(--font);
+       tr{
+        background:var(--tbl-block-color1);
+        // display:flex;
+        // flex-direction:row;
+        // justify-items: center;
+        // align-items: center;
+        width:100%;
+       }
+       tr:nth-child(even){
+        background:var(--tbl-block-color2);
+       }
+
+       td{
+        //  width:200px;
+
+       }
+
+       td:nth-child(1){
+         width:auto;
+        //  min-width:15vmin;
+        padding: 1.5vmin 2vmin;
+         
+        //  flex-grow: 1;
+       }
+       td:nth-child(2){
+        // width:20vmin;
+        min-width:100px;
+        flex-grow: 1;
+      }
+      td:nth-child(3){
+        // width:250px;
+        // width : 10vmin;
+        white-space:nowrap;
+        text-align:right;
+
+      }
+      td:nth-child(3) > div{
+        display:flex;
+        flex-direction:row;
+        justify-items: center;
+        align-items: center;
+      }
+      td:nth-child(3) > div > .dInput{
+        flex-grow: 1;
+      }
+      td.info{
+         position:relative;
+         .color{
+           width:2.5vmin;
+           height:2.5vmin;
+           border-radius:50%;
+           top:50%;
+           transform:translateY(-50%);
+           left:1vmin;
+           background:gray;
+           position:absolute;
+         }
+         .name{
+           padding-left:2.5vmin;
+         }
+      }
+       .dInput 
+       {
+           display: inline-block;
+           //width:calc(100% - 10vmin);
+           width:50px;
+           min-width:50px;
+           input{
+             width:100%;
+           }
+      }
+      .prefix{
+        position: relative;
+        font-size: var(--font-sm);
+        display: inline-block;
+        padding:1vmin;
+      }
+      .suffix{
+        position: relative;
+        font-size: var(--font-sm);
+        display: inline-block;
+        padding:1vmin;
+        width:5vmin;
+      }
+      .total{
+        position: relative;
+        text-align:right;
+        font-size: var(--font-sm);
+        font-weight: 700;
+        font-style: italic;
+        span{
+          display: inline-block;
+        }
+      }
+
+    }
+
+    .dChartToolTip{
+      .name{
+        font-size: var(--font-xs);
+        font-weight: 700;
+        padding-left:2.5vmin;
+      }
+      .value{
+        font-size: var(--font-xs);
+        padding-left:2.5vmin;
+        font-weight: 700;
+      }
+      .color{
+        width:2vmin;
+        height:2vmin;
+        background:gray;
+        border-radius:50%;
+        position:absolute;
+        top:0vmin;
+        left:0vmin;
+      }
+    }
+}
+.dQuestion[qtype="barchart"].noChart{
+
+  .choices > .content{
+    grid-template-columns: 100%;
+  }
+
+  // .section:nth-child(1){
+  //   width:100%;
+  //   max-width:1000px;
+  //   left:50%;
+  //   transform:translateX(-50%);
+  // }
+  td.info .color {
+    display:none;
+ }
+
+
+}
+/*
+.dQuestion[qtype="constantSum"].noSlider{
+  .section:nth-child(1){
+    width:100%;
+    max-width:800px;
+  }
+}
+
+
+@media only screen and (max-width: 900px) {
+  .dQuestion[qtype="constantSum"] {
+    .choices > .content{
+      display:grid;
+      grid-template-columns: 100%;
+    } 
+    .section:nth-child(2){
+      grid-row: 1;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 700px) {
+  .dQuestion[qtype=constantSum]{
+      .dConstantSumTbl{
+          tr{
+            display:block;
+          }
+          td:nth-child(2),td:nth-child(3){
+            width:50%;
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 2vmin 4vmin;
+
+          }
+          td:nth-child(1){
+            width: 100%;
+            display: block;
+          }
+          .total {
+            padding-right: 4vmin;
+          }
+
+
+      }
+  } 
+}
+
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+    .section:nth-child(1){
+      position:relative;
+      width:100%;
+    }
+    .section:nth-child(2){
+      max-width: 100%;
+      min-width: 100%;
+
+    }
+}
+
+
+
+// @media only screen and (max-width: 1200px) {
+//   .dQuestion[qtype="constantSum"] {
+//     .section:nth-child(1){
+//       width:calc(100% - 300px);
+
+//     }
+//     .section:nth-child(2){
+//       width:300px;
+//     }
+//   }
+
+// }
+// @media only screen and (max-width: 1000px) {
+//   .dQuestion[qtype="constantSum"] {
+//       .dConstantSumTbl{
+//           td:nth-child(2){
+//             display:none;
+//           }
+//       }
+//   }
+// }
+
+// @media only screen and (max-width: 700px), screen and (max-height: 400px) {
+//   .dQuestion[qtype="constantSum"] {
+//     .section:nth-child(1){
+//       width:100%;
+
+//     }
+//     .section:nth-child(2){
+//       width:100%;
+//     }
+//   }
+// }
+
+input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+     margin: 0;
+}

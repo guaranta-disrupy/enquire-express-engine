@@ -1,0 +1,91 @@
+
+   {
+        
+        /* BACKGROUND */
+        'background-color' : '#ffffff',
+        'background-img' : '',
+        'background-img-brightness' : '100%',
+
+        'question-txt-color' : '#2c3e50',
+
+         /* BUTTONS */
+        'button-color' : '#e38733',
+        'button-hover-color' : '#e17126',
+        'button-txt-color' : '#ffffff',
+        
+
+         /* WARNING */
+        'warning-msg-color' : '#f15a2a',
+        'warning-msg-txt-color' : '#ffffff',
+        'warning-msg-border-color' : '#b12b01',
+
+         /* CHOICE BOX */
+        'choice-box-color' :  '#ffffff',
+        'choice-box-border-color' :  '#ededed',
+
+
+         /* TABLE */
+        'tbl-header-color' : '#1276be',
+        'tbl-header-lbl-color' : '#ffffff',
+        'tbl-block-color1' : '#f1f1f1',
+        'tbl-block-color2' : '#ffffff',
+        'tbl-lbl-color' : '#2c3e50',
+        'tbl-hint-color' : '#d3e7ff',
+        'tbl-hint-lbl-color' : '#1276be',
+        'tbl-border-color' : '#ededed',
+
+         /* RADIO */
+        'radio-color' : '#ededed',
+        'radio-border-color' : '#dbd7d7',
+        'radio-selected-color' : '#1276be',
+        'radio-lbl-color' : '#2c3e50',
+
+         /* CHECKBOX */
+        'checkbox-color' : '#ededed',
+        'checkbox-border-color' : '#dbd7d7',
+        'checkbox-selected-color' : '#1276be',
+        'checkbox-lbl-color' : '#2c3e50',
+
+         /* TEXTBOX */
+        'tb-color' : '#ffffff',
+        'tb-border-color' : '#dbd7d7',
+        'tb-txt-color' : '#2c3e50',
+        'tb-lbl-color' : '#2c3e50',
+        'tb-error-color' : '#faddd5',
+        'tb-error-txt-color' : '#2c3e50',
+
+        /* CALENDAR */
+        'cal-color' :  '#ffffff',
+        'cal-border-color' :  '#dbd7d7',
+        'cal-lbl-color' : '#2c3e50',
+        'cal-disable-lbl-color' : 'rgba(0,0,0,.5)',
+        'cal-today-color' : '#ededed',
+        'cal-hover-color' : '#ededed',
+        'cal-selected-color' : '#1276be',
+        
+         /* SELECTBOX */
+        'sb-color' : '#ededed',
+        'sb-border-color' : '#dbd7d7',
+        'sb-txt-color' : '#2c3e50',
+        'sb-selected-color' : '#0c5ba8',
+        'sb-selected-txt-color' : '#ffffff',
+        'sb-hover-color' : '#ededed',
+        'sb-hover-txt-color' : '#2c3e50',
+
+
+         /* IMAGE SELECTION */
+        'isb-color' : '#ffffff',
+        'isb-txt-color' : '#2c3e50',
+        'isb-selected-color' : '#0c5ba8',
+        'isb-selected-txt-color' : '#ffffff',
+        'isb-hover-color' : '#ededed',
+        'isb-hover-txt-color' : '#2c3e50',
+
+         /* SLIDER */
+        'slider-line-color' : '#dbd7d7',
+        'slider-default-color' : '#dbd7d7',
+        'slider-default-selected-color' : '#ffffff',
+        'slider-lbl-color' : '#2c3e50',
+        'slider-option-color' : '#dbd7d7'
+
+    }

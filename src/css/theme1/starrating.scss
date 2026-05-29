@@ -1,0 +1,29 @@
+/* STAR RATING */
+.dQuestion[qtype="starRating"]{
+    .starRatingTbl{
+      position:relative;
+      border-collapse: collapse;
+      // left:50%;
+      // transform:translateX(-50%);
+      tr:nth-child(odd){
+         background:$colorTrans1;
+      }
+      td{
+        padding:1vmin;
+        min-width:2vmin;
+        width:50%;
+      }
+      .collections{
+        .star{
+          width:5vmin;
+          height:auto;
+          padding:.5vmin;
+          cursor:pointer;
+          user-select: none;
+          margin: 0vmin;
+        }
+      }
+
+    }
+    
+}

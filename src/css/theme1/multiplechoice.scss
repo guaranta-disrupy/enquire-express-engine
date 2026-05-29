@@ -1,0 +1,52 @@
+/* MULTIPLE CHOICE */
+.dQuestion[qtype="multiplechoice"] > .body > .choices > .content{
+    img{
+        width: 100%;
+        max-width: 25vmin;
+        height: auto;
+    }
+    .wc{
+      display:inline-block;
+      margin-block-start: 1vmin;
+      margin-block-end: 1vmin;
+    } 
+    .wc .dInput{ 
+        margin-top:-1.5vmin;
+        margin-bottom:-1.5vmin;
+        padding-right:1vmin;
+        padding-left:1vmin;
+    }
+    .dRadio{
+      width:calc(100% / var(--grid));
+    }
+    .dCheckbox{
+          width:calc(100% / var(--grid));
+    }
+    .dSelect{
+          width:calc(100% / var(--grid));
+    }
+    .dRadio > label, .dCheckbox > label{
+      min-height:var(--minHeight);
+    }
+  }
+
+  @media only screen and (max-width: 700px), screen and (max-height: 400px) {
+        .dQuestion[qtype="multiplechoice"] > .body > .choices > .content{
+            img{
+                max-width: 40vmin;
+            }
+            .dRadio{
+              width:100%
+            }
+            .dCheckbox{
+              width:100%
+            }
+            .dSelect{
+              width:100%
+            }
+            .dRadio > label, .dCheckbox > label{
+              min-height:unset;
+            }
+
+        }
+  }

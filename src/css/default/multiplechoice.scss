@@ -1,0 +1,75 @@
+/* MULTIPLE CHOICE */
+.dQuestion[qtype="multiplechoice"] > .body > .choices > .content{
+    display: flex;
+    flex-wrap: wrap;
+    img{
+        // width: 100%;
+        // max-width: 25vmin;
+        height: auto;
+    }
+    .wc{
+      display:inline-block;
+      margin-block-start: 1vmin;
+      margin-block-end: 1vmin;
+    } 
+    .wc .dInput{ 
+        margin-top:-1.5vmin;
+        margin-bottom:-1.5vmin;
+        padding-right:1vmin;
+        padding-left:1vmin;
+    }
+    .dRadio{
+      width:calc(100% / var(--grid));
+    }
+    .dCheckbox{
+      width:calc(100% / var(--grid));
+    }
+    .dSelect{
+      //  width:calc(100% / var(--grid));
+      width:100%;
+    }
+    .dRadio > label, .dCheckbox > label{
+      min-height:var(--minHeight);
+      height:100%;
+      box-sizing: border-box;
+      
+    }
+  }
+  @media only screen and (max-width: 1366px){
+  //@media only screen and (max-width: 700px), screen and (max-height: 400px) {
+        .dQuestion[qtype="multiplechoice"] > .body > .choices > .content{
+            img{
+                max-width: 40vmin;
+            }
+            .dRadio{
+              width:calc(100% / var(--grid_tab,1));
+            }
+            .dCheckbox{
+              width:calc(100% / var(--grid_tab,1));
+            }
+            // .dSelect{
+            //   width:calc(100% / var(--grid_tab,1));
+            // }
+            // .dRadio > label, .dCheckbox > label{
+            //   min-height:unset;
+            // }
+
+        }
+  }
+
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  .dQuestion[qtype="multiplechoice"] > .body > .choices > .content{
+    .dRadio{
+      width:calc(100% / var(--grid_mobile,1));
+    }
+    .dCheckbox{
+      width:calc(100% / var(--grid_mobile,1));
+    }
+    // .dSelect{
+    //   width:calc(100% / var(--grid_mobile,1));
+    // }
+}
+
+}

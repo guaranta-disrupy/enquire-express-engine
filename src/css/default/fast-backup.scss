@@ -1,0 +1,213 @@
+:root {
+    --sss-color-1: #e28733;
+    --sss-color-2: #e94f1d;
+    --sss-color-3: #1e71b8;
+    --sss-color-4: #00519e;
+}
+
+.dQuestion[qtype="fast"]{
+    overflow:hidden;
+    padding:0px;
+    .fastBox{
+        width:100vw;
+        height:100vh;
+        text-align:center;
+        transform:scale(1);
+        transition: all .3s;
+        .header{
+            position:fixed;
+            top:50%;
+            transform:translateY(-50%);   
+            width:100%;
+            margin-top:-40vmin; 
+        }
+        .targets{
+            .target{
+                position:fixed;
+                width:30vmin;
+                height:30vmin;
+                border-radius:50%;
+                top:50%;
+                left:50%;
+                transform:translate(-50%,-50%);
+                z-index:2;
+                font-size: 8vmin;
+                font-weight: 700;
+                color:white;
+                cursor:pointer;
+                >.body{
+                    background-color: gray;
+                    box-shadow: 0 1vmin .1vmin darkslategray;
+                    text-shadow: 3px 2px 3px rgba(0,0,0,.8);
+                    transition: all .3s;
+                    
+                    // box-shadow: 0px 0px 1px rgb(0 0 0 / 80%);
+                    border-radius:50%;
+                    pointer-events:none;
+                    position:relative;
+                    width:100%;
+                    height:100%;
+                    .content{
+                        position:absolute;
+                        top:50%;
+                        left:50%;
+                        transform:translate(-50%,-50%);
+                    }
+                }
+                /*&::after{
+                    position:absolute;
+                    content:"";
+                    width:70%;
+                    height:70%;
+                    border:6vmin solid;
+                    border-top-color: var(--sss-color-1);
+                    border-left-color: var(--sss-color-2);
+                    border-bottom-color: var(--sss-color-3);
+                    border-right-color: var(--sss-color-4);
+                    // border-color:green;
+                    box-shadow: 0px 0px 6px rgb(0 0 0 / 50%);
+                    top:50%;
+                    left:50%;
+                    transform:translate(-50%,-50%) rotate(0deg);
+                    z-index:-1;
+                    border-radius:50%;
+                    transition:all 1s;
+                }
+                &.active{
+                    &::after{
+                        width:100%;
+                        height:100%;
+                        transform:translate(-50%,-50%) rotate(360deg);
+                    }
+                }*/
+
+            }
+
+            .target:nth-child(1){
+                margin-left:-50vmin;
+            }
+            .target:nth-child(2){
+                margin-left:50vmin;
+            }
+            .target:nth-child(1) > .body{
+                background-color: #4caf50;
+                box-shadow: 0 1vmin .1vmin #126215;
+            }
+            .target:nth-child(2) > .body{
+                background-color: #f44336;
+                box-shadow: 0 1vmin .1vmin #920a00;
+            }
+            .target:nth-child(1):active > .body{
+                margin-top:.4vmin;
+                box-shadow: 0 .5vmin .1vmin #126215;
+            }
+            .target:nth-child(2):active > .body{
+                margin-top:.4vmin;
+                box-shadow: 0 .5vmin .1vmin #920a00;
+            }
+        }
+        .prime{
+            position: fixed;
+            background: transparent;
+            width: 50vmin;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            padding: 1vmin;
+            border-radius: 4vmin;
+            z-index: 3;
+            border: 0.1vmin solid #dcd7d7;
+            font-size: 4vmin;        
+            &.dragging{
+                background: #faf5f5;
+                transform: translate(-50%, -50%) scale(1.2);
+                pointer-events:none;
+            }
+            &.reset{
+                transition : all .3s;
+            }
+            &.readyToDrop{
+                transition:transform .5s; 
+                transform:translate(-50%,-50%) scale(.6);
+            }
+
+            &.dropped{
+                transform:translate(-50%,-50%) scale(0);
+                transition : transform .3s;               
+            }
+
+            &::after{
+                position:absolute;
+                content:")";
+                font-size:6vmin;
+                color:var(--sss-color-2);
+                right: 0vmin;
+                top: 50%;
+                transform: translateY(-50%);
+                font-family: "DonIcon";
+                animation: fast-prime-hint-animation-R 1s infinite alternate;
+                text-align: center;
+                pointer-events:none;
+
+            }
+            &::before{
+                position:absolute;
+                content:"(";
+                font-size:6vmin;
+                color:var(--sss-color-2);
+                left: 0vmin;
+                top: 50%;
+                transform: translateY(-50%) translateX(-6vmin);
+                font-family: "DonIcon";
+                animation: fast-prime-hint-animation-L 1s infinite alternate;
+                text-align: center;
+                pointer-events:none;
+            }
+            .hint{
+                    position: absolute;
+                    bottom: 0px;
+                    transform: translateX(-50%) translateY(100%);
+                    left: 50%;
+                    font-size: 3vmin;
+                    padding: 2vmin 1vmin;
+                    color: var(--sss-color-2);
+                    pointer-events: none;
+                    animation: fast-prime-hint-animation 1s infinite alternate;
+            }
+        }
+    }
+}
+
+@keyframes fast-prime-hint-animation {
+    from {
+        transform: translateX(-50%) translateY(100%) scale(1);
+        opacity:.4;
+    }
+    to {
+        transform: translateX(-50%) translateY(100%) scale(1.1);
+        opacity:1;
+    }
+}
+
+
+@keyframes fast-prime-hint-animation-L {
+    from {
+        transform: translateY(-50%) translateX(-5vmin) scale(1);
+        opacity:.4;
+    }
+    to {
+        transform: translateY(-50%) translateX(-8vmin) scale(1);
+        opacity:1;
+    }
+}
+@keyframes fast-prime-hint-animation-R {
+    from {
+        transform: translateY(-50%) translateX(5vmin) scale(1);
+        opacity:.4;
+    }
+    to {
+        transform: translateY(-50%) translateX(8vmin) scale(1);
+        opacity:1;
+    }
+}

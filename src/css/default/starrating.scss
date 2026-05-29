@@ -1,0 +1,41 @@
+/* STAR RATING */
+.dQuestion[qtype="starRating"]{
+    .starRatingTbl{
+      position:relative;
+      border-collapse: collapse;
+      color:var(--tbl-lbl-color);
+      border:.1vmin solid var(--tbl-border-color);
+      width:100%;
+      tr{
+        background:var(--tbl-block-color2);
+
+      }
+      tr:nth-child(odd){
+         background:var(--tbl-block-color1);
+      }
+      td{
+        padding:1vmin;
+        min-width:2vmin;
+        width:60%;
+        flex-grow:1;
+      }
+      td:nth-child(2){
+        text-align:right;
+        width:40%;
+      }
+      .collections{
+        display:grid;
+        grid-template-columns: repeat(var(--star_count,5),1fr);
+        .star{
+          width:5vmin;
+          height:auto;
+          padding:.5vmin;
+          cursor:pointer;
+          user-select: none;
+          margin: 0vmin;
+        }
+      }
+
+    }
+    
+}

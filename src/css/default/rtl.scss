@@ -1,0 +1,207 @@
+.dMainCont[rtl='1']{
+    //QUESTION
+    .dQuestion > .body > .question {
+        direction: rtl;
+        text-align: right;
+    }
+
+    .dQuestion.required > .body > .question::after {
+        left: unset;
+        right: -3vmin;
+    }
+
+    .dQuestion > .body > .footer {
+        direction: rtl;
+    }
+
+    .dBtn {
+        direction: rtl;
+    }
+
+    .dBtn::after {
+        right:unset;
+        left: 1.5vmin;
+    }
+    .dBtn:nth-child(1)::after {
+        left: unset;
+        right: 1.5vmin;
+    }
+
+    .dWarn {
+        direction: rtl;
+        text-align: right;
+    }
+    .dWarn::after {
+        left: unset;
+        right: 2vmin;
+    }
+
+    .dQuestion[qtype=multiplechoice] > .body > .choices > .content .dRadio {
+        direction:rtl;
+    }
+
+    .dRadio > label > .txt {
+        padding: 1.5vmin 1.5vmin;
+        padding-right: 4vmin;
+        width: 100%;
+        text-align: right;
+    }
+    @media only screen and (max-width: 1366px){
+   // @media only screen and (max-width: 700px), screen and (max-height: 400px) {
+        .dRadio > label > .txt {
+            padding-right: 7vmin;
+        }
+    }
+
+
+    .dCheckbox {
+        direction: rtl;
+    }
+
+    .dCheckbox > label > .txt {
+        padding: 1.5vmin 1.5vmin;
+        padding-right: 4vmin;
+        width: 100%;
+        text-align: right;
+    }
+    @media only screen and (max-width: 1366px){
+    //@media only screen and (max-width: 700px), screen and (max-height: 400px) {
+        .dCheckbox > label > .txt {
+            padding-right: 7vmin;
+        }
+    }
+
+    .imageSelectionItems > .body {
+        direction: rtl;
+    }
+
+
+    .dInput {
+        position: relative;
+        width: 100%;
+        height: auto;
+        direction: rtl;
+        text-align: right;
+    }
+
+    .dInput .prependTxt {
+        margin-right: unset;
+        margin-left: 1vmin;
+    }
+
+    .dInput .appendTxt {
+        margin-left: unset;
+        margin-right: 1vmin;
+    }
+
+    .dTextArea {
+        direction: rtl;
+    }
+
+
+
+    .dQuestion[qtype=multipleTextbox] > .body > .choices > .content .multipleTextboxCont {
+        direction: rtl;
+        text-align: right;
+    }
+
+    .dQuestion[qtype=constantSum] .dConstantSumTbl {
+        direction: rtl;
+        text-align: right;
+    }
+    .dQuestion[qtype=constantSum] .dConstantSumTbl td:nth-child(2) {
+        direction: ltr;
+    }
+    .dQuestion[qtype=constantSum] .dConstantSumTbl td.info .color {
+        left: unset;
+        right: 1vmin;
+    }
+    .dQuestion[qtype=constantSum] .dConstantSumTbl td.info .name {
+        padding-left: unset;
+        padding-right: 2.5vmin;
+    }
+    .dQuestion[qtype=barChart] .dConstantSumTbl {
+        direction: rtl;
+        text-align: right;
+    }
+    .dQuestion[qtype=barChart] .dConstantSumTbl td:nth-child(2) {
+        direction: ltr;
+    }
+    .dQuestion[qtype=barChart] .dConstantSumTbl td.info .color {
+        left: unset;
+        right: 1vmin;
+    }
+    .dQuestion[qtype=barChart] .dConstantSumTbl td.info .name {
+        padding-left: unset;
+        padding-right: 2.5vmin;
+    }
+
+    .dQuestion[qtype=btn-rating] .question-btn-rating {
+        direction: rtl;
+    }
+
+    .dQuestion[qtype=btn-rating] .question-btn-rating-footer {
+        direction: rtl;
+    }
+
+    .dQuestion[qtype=btn-rating] .targetBox > .body .child_node .content {
+        direction: rtl;
+    }
+
+    .dQuestion[qtype=btn-rating] .primeBox > .body .child_node .content {
+        direction: rtl;
+        width: 100%;
+        text-align: right;
+    }
+
+    .dQuestion[qtype=slider] .dFormGroup .title .content {
+        direction: rtl;
+    }
+
+    .dSlider .labels > .label {
+        direction: rtl;
+    }
+
+    .dQuestion[qtype=starRating] .starRatingTbl {
+        direction: rtl;
+        text-align: right;
+    }
+
+    .dQuestion[qtype=matrix] .dMatrix {
+        direction: rtl;
+        text-align: right;
+    }
+
+    .dQuestion[qtype=matrix] .dMatrix tr td:nth-child(1) {
+        text-align: right;
+    }
+    @media only screen and (max-width: 1366px){
+    //@media only screen and (max-width: 700px), screen and (max-height: 400px) {
+        .dQuestion[qtype=matrix] .dMatrix .dCheckbox > label > .inputStyle {
+            left: unset !important;
+            right: 2vmin;
+        }
+        .dQuestion[qtype=matrix] .dMatrix .dCheckbox > label > .txt {
+            padding-right: 2vmin;
+        }
+        .dQuestion[qtype=matrix] .dMatrix .dRadio > label > .inputStyle {
+            left: unset !important;
+            right: 2vmin;
+        }
+        .dQuestion[qtype=matrix] .dMatrix .dRadio > label > .txt {
+            padding-right: 2vmin;
+        }
+        .dQuestion[qtype=matrix] .dMatrix .dRadio > label > .txt .content {
+           text-align: right;
+        }
+    }
+
+    .dSpinerCont .content {
+        direction: rtl;
+    }
+
+}
+
+.dModal[rtl='1'] {
+    direction: rtl;
+}

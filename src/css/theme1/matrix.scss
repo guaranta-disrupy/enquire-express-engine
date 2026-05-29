@@ -1,0 +1,313 @@
+/* MATRIX */
+.dQuestion[qtype="matrix"] {
+    .dMatrix{
+       border-collapse: collapse;
+       margin-top:.2vmin;
+     }
+    .dMatrix img{
+      padding:.5vmin;
+      // width:20vmin;
+      // height:auto;
+      width:100%;
+      max-width:20vmin;
+      height:auto;
+    }
+    .dMatrix{
+      position:relative;
+      min-width:100%;
+    }
+    .dMatrix td{
+      position:relative;
+      // padding:2vmin 1vmin;
+      padding:1vmin;
+    }
+
+    .dMatrix .label {
+      display:none;
+    }
+
+    .dMatrix .singleWarn{
+      display:none;
+    }
+    .combWarn{
+      display:block;
+    }
+    .content{ 
+        .dMatrix th{
+        text-align:center;
+        font-size: $font-sm;
+        width:calc( 100% / (var(--grid) + 1));
+        vertical-align: middle;
+        padding: 1vmin;
+      }
+    }
+    .dMatrix tr:nth-child(1){
+      text-align:left;
+      font-size: $font;
+      font-weight: 700;
+      height:10vmin;
+      background:$ssrcolor3;
+      color: $color3;
+    }  
+    .dMatrix tr:nth-child(4n){
+      background:$colorTrans1;
+    }
+}
+
+.dQuestion[qtype="matrix"] {
+
+  .dMatrix .dRadio{
+    padding:0vmin;
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top:0px;
+    left:0px;
+  }
+  .dMatrix .dRadio > label{
+    width:100%;
+    height:100%;
+    background:transparent;
+    box-sizing: border-box;
+  }
+  .dMatrix .dRadio > label > .inputStyle{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
+
+
+  .dMatrix .dCheckbox{
+    padding:0vmin;
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top:0px;
+    left:0px;
+  }
+  .dMatrix .dCheckbox > label{
+    width:100%;
+    height:100%;
+    background:transparent;
+    box-sizing: border-box;
+  }
+  .dMatrix .dCheckbox > label > .inputStyle{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
+    .dRadio > label:hover > input ~ .txt .content {
+       display:block;
+    }
+    .dRadio > label > .txt > .content {
+      margin-top: unset;
+      margin-bottom: unset;
+      position: absolute;
+      font-size: $font-xs;
+      left:50%;
+      top:50%;
+      transform:translateY(-50%);
+      z-index: 2;
+      pointer-events: none;
+      margin-left:4vmin;
+      background:$color2;
+      color:$color1;
+      padding:1vmin 2vmin;
+      border-radius:1vmin;
+      min-width:20vmin;
+      display:none;
+    }
+    .dCheckbox > label:hover > input ~ .txt .content {
+      display:block;
+   }
+   .dCheckbox > label > .txt > .content {
+     margin-top: unset;
+     margin-bottom: unset;
+     position: absolute;
+     font-size: $font-xs;
+     left:50%;
+     top:50%;
+     transform:translateY(-50%);
+     z-index: 2;
+     pointer-events: none;
+     margin-left:4vmin;
+     background:$ssrcolor1;
+     color:$color2;
+     padding:1vmin 2vmin;
+     border-radius:1vmin;
+     min-width:20vmin;
+     display:none;
+   }
+   .dCheckbox > label .txt .content, .dRadio > label .txt .content{
+      padding-left:3vmin;
+      background: #e3f2fd;
+      color:$ssrcolor4;
+   }
+   .dCheckbox > label .txt .content:before, .dRadio > label .txt .content:before{
+      background-image: url('data:image/svg+xml;charset=utf8,<svg fill="%231276be" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path d="M256,0C120.477,0,10.224,110.255,10.224,245.778c0,62.171,23.12,121.186,65.206,166.725l-13.707,88.342c-0.558,3.601,0.953,7.208,3.91,9.336c1.677,1.207,3.657,1.82,5.647,1.82c1.52,0,3.046-0.357,4.447-1.083l79.241-41.036c31.825,14.386,65.788,21.675,101.032,21.675c135.521,0,245.778-110.255,245.778-245.778C501.778,110.255,391.523,0,256,0z M256,472.211c-33.973,0-66.646-7.347-97.114-21.835c-2.731-1.3-5.914-1.245-8.601,0.146l-66.524,34.45l11.51-74.177c0.463-2.982-0.493-6.007-2.582-8.184c-40.704-42.373-63.121-98.072-63.121-156.835C29.568,120.922,131.145,19.344,256,19.344s226.433,101.577,226.433,226.433S380.856,472.211,256,472.211z"/></g></g><g><g><path d="M256,70.708c-28.236,0-51.208,22.972-51.208,51.208c0,28.236,22.972,51.208,51.208,51.208c28.238,0,51.208-22.972,51.208-51.208C307.208,93.678,284.236,70.708,256,70.708z M256,153.78c-17.57,0-31.864-14.294-31.864-31.864S238.43,90.052,256,90.052c17.571,0,31.864,14.294,31.864,31.864S273.57,153.78,256,153.78z"/></g></g><g><g><path d="M312.758,357.74h-11.013V199.148c0-5.342-4.331-9.672-9.672-9.672h-92.828c-5.342,0-9.672,4.331-9.672,9.672v32.143c0,5.342,4.331,9.672,9.672,9.672h11.013v116.777h-11.013c-5.342,0-9.672,4.331-9.672,9.672v32.143c0,5.343,4.331,9.673,9.672,9.673h113.514c5.342,0,9.672-4.331,9.672-9.672v-32.143C322.43,362.071,318.099,357.74,312.758,357.74z M303.085,389.884h-94.17v-12.8h11.013c5.342,0,9.672-4.331,9.672-9.672V231.291c0-5.342-4.331-9.672-9.672-9.672h-11.013v-12.798H282.4v158.593c0,5.342,4.331,9.672,9.672,9.672h11.013V389.884z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>');
+      background-repeat: no-repeat;
+      background-size: auto 2vmin;
+      background-position: center center;
+      width: 2vmin;
+      height: 2.5vmin;
+      position:absolute;
+      top:.5vmin;
+      left:.5vmin;
+      content:"";
+  }
+
+
+}
+
+@media only screen and (max-width: 700px), screen and (max-height: 400px) {
+    .dQuestion[qtype="matrix"] {
+
+      .dMatrix img{
+        max-width:40vmin;
+      }
+
+      .dMatrix .singleWarn{
+        display:grid;
+        margin-top: -7vmin;
+      }
+      .combWarn{
+        display:none;
+      }
+
+    .dMatrix .dRadio{
+        padding:0vmin;
+        width:100%;
+        height: 100%;
+        position: relative;
+        top:0px;
+        left:0px;
+    }
+
+    .dMatrix .dRadio > label > .inputStyle {
+        left: 3vmin;
+        top: 4vmin;
+        transform: unset;
+    }
+
+    .dMatrix .dRadio > label > .txt > .content {
+        margin-top: unset;
+        margin-bottom: unset;
+        left:50%;
+        top:unset;
+        transform:unset;
+        z-index: 1;
+        margin-left:0vmin;
+        background:transparent;
+        color:$color1;
+        padding:1vmin 2vmin;
+        border-radius:1vmin;
+        min-width:20vmin;
+        position: relative;
+        font-size: $font-sm-m;
+        display:block;
+        left:0px;
+        pointer-events: all;
+      }
+
+      .dMatrix .dCheckbox{
+        padding:0vmin;
+        width:100%;
+        height: 100%;
+        position: relative;
+        top:0px;
+        left:0px;
+    }
+
+    .dMatrix .dCheckbox > label > .inputStyle {
+        left: 3vmin;
+        top: 4vmin;
+        transform: unset;
+    }
+
+    .dMatrix .dCheckbox > label > .txt > .content {
+        margin-top: unset;
+        margin-bottom: unset;
+        left:50%;
+        top:unset;
+        transform:unset;
+        z-index: 1;
+        margin-left:0vmin;
+        background:transparent;
+        color:$color1;
+        padding:1vmin 2vmin;
+        border-radius:1vmin;
+        min-width:20vmin;
+        position: relative;
+        font-size: $font-sm-m;
+        display:block;
+        left:0px;
+        pointer-events: all;
+      }
+
+      .dMatrix img{
+        width:40vmin;
+      }
+
+
+      .dMatrix th{
+        font-size: $font-sm-m;
+      }
+    
+      .dMatrix tr td:nth-child(1){
+        font-size: $font-m;
+      }
+
+      .dMatrix tr{
+        display:grid;
+      }
+      
+      .dMatrix tr:not(:last-child){
+        margin-bottom:8vmin;
+      }
+
+      .dMatrix .header{
+        display:none;
+      }  
+      .dMatrix .label {
+        display: inline-block;
+        padding: .2vmin 1vmin;
+        padding-left:5vmin;
+      }
+
+
+      .dMatrix tr td {
+        height: auto;
+        text-align: left;
+        padding:.5vmin 3vmin;
+      }
+      .dMatrix tr td:nth-child(1){
+        font-size: $font-lg-m;
+        padding:3vmin;
+      }  
+
+      .dCheckbox > label .txt .content:before, .dRadio > label .txt .content:before{
+        display:none;
+      }
+
+
+    }
+}
+
+//MATRIX COLUMN
+.dQuestion.column[qtype="matrix"] {
+  .dMatrix tr:nth-child(4n){
+    background:transparent;
+  }   
+  .dMatrix td:nth-child(2n){
+    background:$colorTrans1;
+  }
+  .dMatrix.smallDisplay td:nth-child(2n){
+    background:transparent;
+  }
+  .dMatrix.smallDisplay tr:nth-child(2n){
+    background:$colorTrans1;
+  }  
+
+}

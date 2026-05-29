@@ -1,0 +1,297 @@
+/* SEGMENTATION */
+.dSegmentation{
+    width: calc(100% - 80vmin);
+    margin-bottom:8vmin;
+    left:50%;
+    transform:translateX(-50%);
+    position:relative; 
+    .dFormGroup > .title{
+      position:absolute;
+      margin-bottom:0vmin;
+      left:50%;
+      transform: translateX(-50%);
+      width:calc(100% - (100% / var(--labels)));
+      text-align:center;
+      font-size:var(--font-lg);
+      pointer-events:none;
+    }
+    .dFormGroup > .body{
+      position:relative;
+      left:50%;
+      transform: translateX(-50%);
+      width:calc(100% - (100% / var(--labels)));
+    }
+    .slider-horizontal {
+        height: var(--slider-height,3vmin);
+    }
+    .slider-horizontal .slider-handle {
+      width: var(--slider-handle-width,5vmin);
+      height: var(--slider-handle-height,5vmin);
+      top: calc(var(--slider-handle-height, 5vmin)/2*-1 - var(--slider-height, 6px)/2*-1 + 1vmin);
+      right: calc(var(--slider-handle-width, 5vmin)/2*-1);
+      transition: .3s ease-in;
+     }
+     .slider-horizontal .slider-tooltip {
+        bottom: calc(var(--slider-handle-height, 4vmin) + var(--slider-tooltip-arrow-size, .5vmin) + var(--slider-tooltip-distance, .3vmin));
+    }
+    .slider-connect {
+        background: var(--color,#d1d5db);
+        display:none;
+    }
+    .slider-tooltip {
+        color: var(--slider-tooltip-color,#fff);
+        border-radius: var(--slider-tooltip-radius,5px);
+        border: 1px solid var(--slider-tooltip-bg,var(--ssrcolor3));
+        background: var(--slider-tooltip-bg,var(--ssrcolor3));
+    }
+  
+    .slider-handle {
+        background: var(--color,#fff);
+        border: .5vmin solid var(--slider-line-color);
+        box-shadow: unset;
+    }
+  
+  
+    .labels{
+       position:relative;
+       width:calc(100% + (100% / var(--labels)));
+       left:50%;
+       transform:translateX(-50%);
+       margin-top: 1vmin;
+       padding-bottom: 2vmin;
+    }
+  
+  
+    .labels > .label{
+      display:inline-block;
+      width:calc(100% / var(--labels));
+      vertical-align: top;
+      text-align: center;
+      font-size:var(--font-xs);
+      font-weight: 700;
+      padding: 2vmin .5vmin;
+    //   color: var(--slider-option-color);
+      color: #9E9E9E;
+      position:relative;
+    }
+    .labels > .label.active{
+      color:var(--active);
+      // transform:scale(1.2);
+      transition:transform .3s linear;
+    }
+  
+  
+      // .slider-active {
+      //   box-shadow: var(--slider-handle-shadow-active,.5px .5px 2px 1px rgba(0,0,0,0));
+      // }
+  
+    .slider-base {
+        background-color: transparent;
+    }
+  
+  
+  }
+  .dSegmentation.notselected{
+      .slider-connect {
+        background: #d1d5db;
+      }
+      .slider-handle {
+        background: var(--slider-default-selected-color);
+        cursor: w-resize;
+        display:none;
+    }
+  }
+  
+  
+  .dFormGroup {
+    position:relative;
+    margin-bottom: 2vmin;
+  }
+  
+  
+  
+  
+  .dSegmentation {
+        .dFormGroup .title .content{
+                display:inline-block;
+                color:var(--slider-lbl-color);
+        }
+
+        .dFormGroup .title .content > .statementA {
+            position: absolute;
+            top: 0%;
+            left: -5vmin;
+            transform: translateX(-100%);
+            width:40vmin;
+            font-size: var(--font);
+            text-align:right;
+            font-weight:700;
+        }
+        
+        .dFormGroup .title .content > .statementB {
+            position: absolute;
+            top: 0%;
+            right: -5vmin;
+            transform: translateX(100%);
+            width:40vmin;
+            font-size: var(--font);
+            text-align:left;
+            font-weight:700;
+        }
+
+        .dFormGroup .title .content > .statementA > .title, .dFormGroup .title .content > .statementB > .title{
+            position:absolute;
+            width:100%;
+            top:0%;
+            transform:translateY(-100%);
+            font-size:var(--font-sm);
+            color:var(--statementColor,gray);
+        }
+
+        .dRow:last-child .dSegmentation{
+            margin-bottom:0vmin;
+        }
+  
+        .wc{
+            display:inline-block;
+            margin-block-start: 1vmin;
+            margin-block-end: 1vmin;
+        } 
+        .wc .dInput{ 
+            padding-right:1vmin;
+            padding-left:1vmin;
+        }
+        .pointerObjs{
+            position:absolute;
+            width:100%;
+            height: var(--slider-height, 3vmin);
+            top:0px;
+            left:0px;
+            // pointer-events: none;
+        }
+  
+    .pointerObjs::after{
+      content: "";
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      background: transparent;
+      transform: translateY(-50%);
+      z-index:-1;
+      height: 0vmin;
+      border-bottom: 1vmin solid var(--slider-line-color);
+  }
+  
+  
+    .pointerObjs > div{
+      width:3vmin;
+      height:3vmin;
+      margin-top:-.2vmin;
+      top:50%;
+      left:0px;
+      transform:translate(-50%,-50%);
+      border-radius:50%;
+      //background:white;
+      background:var(--slider-default-color);
+      position:absolute;
+      border: 0.5vmin solid var(--slider-line-color);
+  
+    }
+  }
+  
+
+
+//.dSegmentation.smallSize{
+@media screen and (max-width: 900px) {
+    .dSegmentation{
+        width: calc(100%);
+        .dFormGroup > .title{
+            position:relative;
+            margin-bottom: 2vmin;
+
+        }
+        .dFormGroup > .title .content{
+            width:100%;
+        }
+        .dFormGroup > .title .content > .statementA {
+            position: relative;
+            top: 0%;
+            left: unset;
+            transform: unset;
+            width:50%;
+            text-align:left;
+            vertical-align: top;
+            display: inline-block;
+            padding:0vmin 2vmin 0vmin 0vmin;
+        }
+        
+        .dFormGroup > .title .content > .statementB {
+            position: relative;
+            top: 0%;
+            right: unset;
+            transform: unset;
+            width:50%;
+            text-align:right;
+            vertical-align: top;
+            display: inline-block;
+            padding:0vmin 0vmin 0vmin 2vmin;
+        }        
+        .dFormGroup > .title .content > .statementA > .title, .dFormGroup .title .content > .statementB > .title{
+            position:relative;
+            transform: unset;
+        }
+
+    }
+}
+
+
+
+/*
+
+  .oaat_animation-enter-active{
+    animation-name: oaat_animation-in;
+    animation-duration: .3s;
+  }
+  .oaat_animation-leave-from,.oaat_animation-leave-active,.oaat_animation-leave-to{
+    position: absolute!important;
+    top:0px!important;
+    left:0px!important;
+    pointer-events:none;
+  }
+  
+  .oaat_animation-leave-active{
+    animation-name: oaat_animation-out;
+    animation-duration: .3s;
+  }
+  
+  @keyframes oaat_animation-in {
+    0% {
+      opacity:0;
+      transform: translateY(20%) scale(.5);
+    }
+    25%{
+      opacity:1;
+    }
+    100% {
+      z-index:2;
+      transform: translateY(0%) scale(1);
+  }
+  }
+  
+  
+  @keyframes oaat_animation-out {
+    0% {
+      opacity:1;
+      z-index:1;
+      transform: translateY(0%) scale(1);
+    }
+    75%{
+      
+    }
+    100% {
+      opacity:0;
+      transform: translateY(-20%) scale(.5);
+  }
+  }
+
+*/

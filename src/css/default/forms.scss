@@ -1,0 +1,482 @@
+/* FORMS */
+div, input, textarea, select{
+    box-sizing: border-box;
+  }
+
+  .dBtn{
+    //font-size:$font;
+    font-size:var(--font);
+    padding:2vmin 7vmin;
+    border-radius:1vmin;
+    border:0vmin;
+    color:var(--button-txt-color);
+    cursor:pointer;
+    margin:.5vmin;
+    min-width:25vmin;
+    background-color: var(--button-color);
+    border: 0px solid var(--button-color);
+    position:relative;
+  }
+  .dBtn::after {
+    background: transparent;
+    //content: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;fill:white;" xml:space="preserve"><path class="st0" d="M16,5.5c-2.8,0-5.5,1.1-7.4,3.1c-2,2-3.1,4.6-3.1,7.4s1.1,5.5,3.1,7.4c2,2,4.6,3.1,7.4,3.1s5.5-1.1,7.4-3.1  c2-2,3.1-4.6,3.1-7.4s-1.1-5.5-3.1-7.4C21.5,6.6,18.8,5.5,16,5.5z M16,28c-3.2,0-6.2-1.3-8.5-3.5C5.3,22.2,4,19.2,4,16  s1.3-6.2,3.5-8.5C9.8,5.3,12.8,4,16,4s6.2,1.3,8.5,3.5C26.7,9.8,28,12.8,28,16s-1.3,6.2-3.5,8.5C22.2,26.7,19.2,28,16,28z   M21.2,16.8c0.2,0,0.4-0.1,0.5-0.2c0.1-0.1,0.2-0.3,0.2-0.5s-0.1-0.4-0.2-0.5c-0.1-0.1-0.3-0.2-0.5-0.2h-8.7l3.2-3.2  c0.1-0.1,0.2-0.3,0.2-0.5s-0.1-0.4-0.2-0.5s-0.3-0.2-0.5-0.2s-0.4,0.1-0.5,0.2l-4.5,4.5c-0.1,0.1-0.1,0.2-0.2,0.2  c0,0.1-0.1,0.2-0.1,0.3s0,0.2,0.1,0.3c0,0.1,0.1,0.2,0.2,0.2l4.5,4.5c0.1,0.1,0.3,0.2,0.5,0.2s0.4-0.1,0.5-0.2  c0.1-0.1,0.2-0.3,0.2-0.5s-0.1-0.4-0.2-0.5l-3.2-3.2H21.2z"/></svg>');
+    font-family: var(--icon-family);
+    font-size:4vmin;
+    //content:"\eaaa";
+    content:">";
+    height: auto;
+    top: 50%;
+    position: absolute;
+    right: 1.5vmin;
+    // transform: translateY(-50%) rotate(180deg);
+    transform: translateY(-50%);
+    z-index: 1;
+    color:var(--button-txt-color);
+    box-sizing: border-box;
+    margin-top: -.25vmin;
+  }
+  .dBtn:nth-child(1)::after {
+    transform: translateY(-50%);
+    //content:"\eaa7";
+    content:"<";
+    right:unset;
+    left: 1.5vmin;
+    // margin-top: .25vmin;
+  }
+  .dBtn:only-child::after {
+    transform: translateY(-50%);
+    right:1.5vmin;
+    left: unset;
+    margin-top: -.25vmin;
+  }
+
+
+  .dBtn:hover{
+    background-color: var(--button-hover-color);
+    border: 0px solid var(--button-hover-color);      
+  }
+  .dError{
+    color:var(--warn-color);
+    //font-size:$font-xs;
+    font-size:var(--font-xs);
+    padding:.5vmin 1vmin;
+    display: inline-block;
+  }
+  .dInput{
+    position:relative;
+    width:100%;
+    height:auto;
+  }
+
+  .dInput .appendTxt{
+      display: inline-block;
+      margin-left: 1vmin;
+  }
+
+  .dInput .prependTxt{
+    display: inline-block;
+    margin-right: 1vmin;
+  }
+
+  .dInput input, .dInput select{
+    @include isInput;
+    font-size:var(--font-sm);
+    padding:1.5vmin 1.5vmin;
+    margin:.5vmin; 
+    width: 100%;
+  }
+
+  .dInput.hasError input{
+    @include hasError;
+  }
+
+  .dDate input{
+    font-size:var(--font-sm);
+    padding:1.5vmin 1.5vmin;
+    margin:.5vmin; 
+    border:1px solid var(--color1);
+    border-radius:0px;
+  }
+
+  .dTextArea{
+    position:relative;
+    width:100%;
+  }
+  .dTextArea textarea{
+    @include isInput;
+    min-height:30vmin;
+    width: 100%;
+    padding:2vmin;
+    font-size:var(--font);
+    box-sizing: border-box;
+    resize: none;
+  }
+
+  .dTextArea.hasError textarea{
+    @include hasError;
+  }
+
+  .dTextArea textarea ~ .info {
+    text-align: right;
+    font-size:var(--font-sm);
+    font-weight: 600;
+    opacity: .5;
+    font-style: italic;
+  }
+
+  .dSelect{
+      .vue-select{
+        width:100%;
+        z-index:5;
+        @include isInput;
+        padding:1.5vmin 1.5vmin;
+        margin:.5vmin; 
+        width: 100%;
+      }
+      .vue-select[aria-expanded=true]{
+        z-index:6;
+      }
+
+      .vue-dropdown {
+        border: .1vmin solid var(--sb-border-color);
+        margin-top: .5vmin;
+    }
+    .vue-input {
+      padding: 0px;
+    }
+
+
+      .vue-input input {
+        font-size:var(--font-sm);
+      }
+      .vue-dropdown-item {
+        list-style-type: none;
+        padding: 2vmin 2vmin;
+        font-size:var(--font-sm);
+        background-color: var(--choice-box-color);
+        color:var(--sb-txt-color);
+        transition:padding .3s ease-in-out;
+      }
+
+
+      .vue-dropdown-item.highlighted {
+        // background-color: var(--colorGray1);
+        color:var(--sb-hover-txt-color);
+        background-color: var(--sb-hover-color);
+        padding-left:4vmin;
+        
+      }
+      .vue-dropdown-item.selected {
+        background-color: var(--sb-selected-color);
+        color:var(--sb-selected-txt-color);
+      }
+      // .vue-dropdown-item.selected.highlighted {
+      //   background-color: var(--sb-color);
+      //   color:var(--sb-lbl-color);
+      // }
+      .dMultipleSelectedItems{
+        position:relative;
+        padding:0vmin .5vmin;
+      }
+      .dMultipleSelectedItems > .item{
+        display:inline-block;
+        // background:var(--ssrcolor3);
+        background:var(--ssrcolor6);
+        color:var(--color1);
+        padding:1vmin 1vmin;
+        padding-right:3vmin;
+        font-size: var(--font-sm);
+        margin-bottom:.5vmin;
+        margin-right:.5vmin;
+        border-radius:1vmin;
+        cursor:pointer;
+        position:relative;
+        transition:all .3s ease-in-out;
+        animation-name:multiselect_animation;
+        animation-duration: .3s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        overflow:hidden;
+      }
+      .dMultipleSelectedItems > .item:hover{
+        background:var(--danger-color);
+        color:var(--color2);
+        
+      }
+
+      .dMultipleSelectedItems > .item > .icon{
+        color:#ff7e7e;
+        font-weight: 800;
+        font-size: var(--font-xs);
+        position:absolute;
+        right:-2vmin;
+        top:1vmin;
+        transition:all .3s ease-in-out;
+      }
+      .dMultipleSelectedItems > .item:hover > .icon{
+        color:var(--color2);
+        // opacity:.4;
+        right:1vmin;
+      }
+
+      // .dMultipleSelectedItems .vue-dropdown-item.highlighted{
+      //   padding-left:8vmin;
+      // }
+
+  }
+  .dSelect.hasError{
+    .vue-select{
+      @include hasError;
+    }      
+  }
+
+  @keyframes multiselect_animation{
+    from {
+      transform: translateY(2vmin);
+      opacity:0;
+    }
+  
+    to {
+      opacity:1;
+      transform:translateY(0%);
+    }
+  }
+
+
+
+  .removed-checked-itemsFrom {
+    opacity:1;
+    transform: translateY(0vmin);
+    background:red;
+  }
+
+  .removed-checked-itemsTo {
+    opacity:0;
+    transform: translateY(2vmin);
+  }
+
+
+
+
+  .dRadio{
+    position:relative;
+    font-size:var(--font);
+    width:100%;
+    display:inline-block;
+    vertical-align: top;
+    padding:.5vmin;
+  }
+  .dRadio > label{
+    padding:0vmin 2vmin;
+    cursor:pointer;
+    position:relative;
+    display: block;
+    //background: var(--color3);
+    background: var(--choice-box-color);
+    border:.1vmin solid var(--choice-box-border-color);  
+    border-radius:1vmin;
+  }
+
+  .dRadio > label > input[type="radio"]{
+    display:none;
+  }
+  .dRadio > label > .inputStyle{
+    width:3vmin;
+    height:3vmin;
+    // border:1px solid var(--colorGray1);
+    // background: var(--colorGray1);
+
+    background:var(--radio-color);
+    border:.1vmin solid var(--radio-border-color);   
+
+
+    display: inline-block;
+    border-radius:50%;
+    position:absolute;
+    z-index:1;
+    top: 2vmin;
+  }
+  .dRadio > label > input[type="radio"]:checked ~ .inputStyle{
+    // background:var(--ssrcolor3);
+    // border:1px solid var(--ssrcolor4);
+
+    background:var(--radio-selected-color);
+    border:1px solid var(--radio-selected-color);   
+
+
+    
+  }
+  .dRadio > label > .txt{
+    display: inline-block;
+    padding:1.5vmin 1.5vmin;
+    padding-left:4vmin;
+    vertical-align: top;
+  }
+  .dRadio > label > .txt > .content{
+    padding: 1.5vmin 0vmin;
+    margin-top:-1vmin;
+    margin-bottom:-1vmin;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    color: var(--radio-lbl-color);
+  }
+
+
+  .dCheckbox{
+    position:relative;
+    font-size:var(--font);
+    width:100%;
+    display:inline-block;
+    vertical-align: top;
+    padding:.5vmin;
+  }
+  .dCheckbox > label{
+    padding:0vmin 2vmin;
+    cursor:pointer;
+    position:relative;
+    display: block;
+    background: var(--choice-box-color);
+    border:.1vmin solid var(--choice-box-border-color);  
+    border-radius:1vmin;
+  }
+
+  .dCheckbox > label > input[type="checkbox"]{
+    display:none;
+  }
+  .dCheckbox > label > .inputStyle{
+    width:3vmin;
+    height:3vmin;
+    background:var(--checkbox-color);
+    border:.1vmin solid var(--checkbox-border-color);   
+    display: inline-block;
+    position:absolute;
+    z-index:1;
+    top: 2vmin;
+  }
+  .dCheckbox > label > input[type="checkbox"]:checked ~ .inputStyle{
+    background:var(--checkbox-selected-color);
+    // border:1px solid var(--checkbox-selected-color);   
+  }
+  .dCheckbox > label > input[type="checkbox"]:checked ~ .inputStyle::after{
+      width: .6vmin;
+      height: 1.6vmin;
+      border: solid var(--color2);
+      border-width: 0 .3vmin .3vmin 0;
+      transform: rotate(45deg) translate(-50%,-50%);
+      transform-origin: top;
+      content:"";
+      display: block;
+      z-index:1;
+      position:absolute;
+      top:50%;
+      left:50%;
+  }
+
+  .dCheckbox > label > .txt{
+    display: inline-block;
+    padding:1.5vmin 1.5vmin;
+    padding-left:4vmin;
+    vertical-align: top;
+  }
+  .dCheckbox > label > .txt > .content{
+    padding: 1.5vmin 0vmin;
+    margin-top:-1vmin;
+    margin-bottom:-1vmin;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    color: var(--checkbox-lbl-color);
+  }
+
+  //SMALL SCREEN
+  @media only screen and (max-width: 1366px){
+ // @media only screen and (max-width: 700px), screen and (max-height: 400px) {
+    .dBtn{
+      padding:2vmin 6vmin;
+      min-width:unset;
+      //width:50%;
+      box-sizing: border-box;
+      //width: calc(50% - 2vmin);
+      box-sizing: border-box;
+      margin: 1vmin;        
+    }
+
+    .dBtn:only-child {
+      width:100%;
+    }
+
+    // .dInput input{
+    //   font-size:$font-sm-m;
+    // }
+    // .dDate input{
+    //   font-size:$font-sm-m;
+    // }
+
+    // .dTextArea textarea{
+    //   font-size:$font-sm-m;
+    // }
+    // .dTextArea textarea ~ .info {
+    //   font-size:$font-sm-m;
+    // }
+
+
+    //   .dSelect{
+    //     .vue-input input{
+    //       font-size:$font-sm-m;
+    //     }
+
+    //     .vue-dropdown-item {
+    //       font-size:$font-sm-m;
+    //     }
+    // }
+
+
+    // .dRadio{
+    //   font-size:$font-m;
+    // }
+
+    .dRadio > label{
+        padding: 1vmin 2vmin;
+    }
+    .dRadio > label > .inputStyle{
+      width:5vmin;
+      height:5vmin;
+      top:2.5vmin;
+    }
+    .dRadio > label > .txt{
+      padding-left:7vmin;
+    }
+    .dCheckbox{
+      // font-size:$font-m;
+      padding:.5vmin;
+    }
+    .dCheckbox > label{
+      padding: 1vmin 2vmin;
+    }
+    .dCheckbox > label > .inputStyle{
+      width:5vmin;
+      height:5vmin;
+      top:2.5vmin;
+    }
+    .dCheckbox > label > input[type="checkbox"]:checked ~ .inputStyle::after{
+        width: 1vmin;
+        height: 2vmin;
+        border-width: 0 .6vmin .6vmin 0;
+    }
+    
+    .dCheckbox > label > .txt{
+      padding-left:7vmin;
+    }
+
+
+  }
+  @media screen and (max-width: 480px) {
+    .dBtn{
+      padding:2vmin 6vmin;
+      width: 100%;
+    }
+  }
+
+

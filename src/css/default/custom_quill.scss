@@ -1,0 +1,102 @@
+.ql-align-center{
+    text-align: center;
+}
+
+.ql-align-right{
+    text-align: right;
+}
+
+.ql-align-left{
+    text-align: left;
+}
+
+.ql-align-justify{
+    text-align: justify;
+}
+
+.piped{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ssr-import-image{
+    width : var(--imgwidth,30%);
+    float: var(--imgfloat,"none");
+}
+
+
+:root{
+    --fs1:2vmin;
+    --fs2:2.5vmin;
+    --fs3:3vmin;
+    --fs4: 3.5vmin;
+    --fsl: 4vmin;
+}
+font[data-fs='Small']{
+    font-size:var(--fs1);
+    line-height: var(--fs1);
+}
+font[data-fs='Normal']{
+    font-size:var(--fs2);
+    line-height: var(--fs2);
+}
+font[data-fs='Large']{
+    font-size:var(--fs3);
+    line-height: var(--fs3);
+}
+font[data-fs='Huge']{
+    font-size:var(--fs4);
+    line-height: var(--fs4);
+}
+
+/* Tablet */
+@media screen and (max-width: 1366px) {
+    font[data-fs='Small']{
+        font-size:calc(var(--fs1) + 20%);
+        line-height:calc(var(--fs1) + 20%);
+    }
+    font[data-fs='Normal']{
+        font-size:calc(var(--fs2) + 20%);
+        line-height:calc(var(--fs2) + 20%);
+        
+    }
+    font[data-fs='Large']{
+        font-size:calc(var(--fs3) + 20%);
+        line-height:calc(var(--fs3) + 20%);
+    }
+    font[data-fs='Huge']{
+        font-size:calc(var(--fs4) + 20%);
+        line-height:calc(var(--fs4) + 20%);
+    }
+
+    .ssr-import-image{
+        width : var(--imgwidth-tablet,var(--imgwidth,30%));
+        float: var(--imgfloat-tablet,var(--imgfloat,none));
+    }
+
+}
+  
+  /* Mobile */
+  @media screen and (max-width: 480px) {
+    font[data-fs='Small']{
+        font-size:calc(var(--fs1) + 40%);
+        line-height:calc(var(--fs1) + 40%);
+    }
+    font[data-fs='Normal']{
+        font-size:calc(var(--fs2) + 40%);
+        line-height:calc(var(--fs2) + 40%);
+        
+    }
+    font[data-fs='Large']{
+        font-size:calc(var(--fs3) + 40%);
+        line-height:calc(var(--fs3) + 40%);
+    }
+    font[data-fs='Huge']{
+        font-size:calc(var(--fs4) + 40%);
+        line-height:calc(var(--fs4) + 40%);
+    }
+    .ssr-import-image{
+        width : var(--imgwidth-mobile,var(--imgwidth-tablet,var(--imgwidth,30%)));
+        float: var(--imgfloat-mobile,var(--imgfloat-tablet,var(--imgfloat,"none")));
+    }
+  }
