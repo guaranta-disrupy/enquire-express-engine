@@ -34,7 +34,7 @@
     </div>
     <div class="dFooter" :class="{noLine:(project.setup.footer.logo != '')}" v-if="(project?.setup.footer.enable == 1) && (this.state.init)">
         <div class="body">
-        <img class="logo" v-if="!project?.setup.footer.logo" src="@/assets/img/logo_poweredby.gif"/>
+        <img class="logo" v-if="!project?.setup.footer.logo" src="@/assets/img/nextsensus/nextsensus-powered-by.svg"/>
         <img class="logo" v-else :src="project?.setup.footer.logo"/>
         </div>
     </div>

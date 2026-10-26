@@ -4,7 +4,7 @@
         <!-- <div class="dSpiner play" :style="{'background-image': 'url('+require('@/components/spinner/logo.svg')+')'}"></div> -->
         <div class="dSpinerImg">
           <img v-if="logo" :src="logo"/>
-          <img v-else :src="img"/>
+          <img v-else class="ns-default" :src="img"/>
         </div>
         <div class="content" v-html="content"></div>
     </div>
@@ -16,7 +16,7 @@ export default {
     data(){
         return {
             show : false,
-            img : require('@/assets/img/loading.gif'),
+            img : require('@/assets/img/nextsensus/nextsensus-carregando.svg'),
             content : null
         }
     },
