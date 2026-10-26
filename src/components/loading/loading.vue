@@ -4,7 +4,7 @@
         <!-- <div class="logo play" :style="{'background-image': 'url('+require('@/components/loading/logo.svg')+')'}"></div> -->
         <div class="dLogoImg">
           <img v-if="logo" :src="logo"/>
-          <img v-else :src="img"/>
+          <img v-else class="ns-default" :src="img"/>
         </div>
     </div>
   </div>
@@ -15,7 +15,7 @@ export default {
     data(){
         return {
             show : false,
-            img : require('@/assets/img/loading.gif')
+            img : require('@/assets/img/nextsensus/nextsensus-carregando.svg')
         }
     },
     props : ['logo'],
@@ -86,5 +86,13 @@ export default {
 }
 .dLogo .logo.play {
   animation-name: aLogo;
+}
+
+/* nextsensus: a animação padrão é larga; logos personalizados seguem o limite original */
+.dLogoImg img.ns-default{
+  width: 220px;
+  max-width: none;
+  height: auto;
+  max-height: none;
 }
 </style>

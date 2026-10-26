@@ -72,3 +72,10 @@
 .dSpiner.play {
   animation-name: aSpinner;
 }
+/* nextsensus: a animação padrão é larga; logos personalizados seguem o limite original */
+.dSpinerImg img.ns-default{
+  width: 220px;
+  max-width: none;
+  height: auto;
+  max-height: none;
+}
