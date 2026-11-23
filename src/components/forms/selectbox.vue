@@ -11,8 +11,24 @@
 
     <transition name="drapdownAnimate">
       <div class="dSelect-menu" v-show="isOpen">
+        <div v-if="searchEnabled" class="dSelect-search" @click.stop>
+          <input
+            ref="searchInput"
+            v-model="searchTerm"
+            type="search"
+            inputmode="search"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            :placeholder="texts.placeholder"
+            @keydown.enter.prevent="selectFirstMatch"
+            @keydown.esc.prevent="isOpen = false"
+          />
+        </div>
+        <div v-if="searchEnabled && !visibleOptions.length" class="dSelect-empty" @click.stop>{{ texts.empty }}</div>
         <div
-          v-for="option in filteredOptions"
+          v-for="option in visibleOptions"
           :key="option.value"
           :data-value="option.value"
           class="dSelect-option"
@@ -26,6 +42,8 @@
 </template>
 
 <script>
+import { SEARCH_MIN_OPTIONS, matchesSearch, searchTexts } from '@/js/dropdownSearch'
+
 export default {
   props: {
     name: String,
@@ -45,12 +63,21 @@ export default {
       selectedValue: this.selected,
       hasError: false,
       searchChar: '',
-      searchTimeout: null
+      searchTimeout: null,
+      searchTerm: '',
+      texts: searchTexts()
     }
   },
   computed: {
     filteredOptions() {
       return this.options.filter(opt => opt.show)
+    },
+    searchEnabled() {
+      return this.filteredOptions.length > SEARCH_MIN_OPTIONS
+    },
+    visibleOptions() {
+      if (!this.searchEnabled) return this.filteredOptions
+      return this.filteredOptions.filter(opt => matchesSearch(opt.name, this.searchTerm))
     },
     selectedLabel() {
       const match = this.filteredOptions.find(opt => opt.value === this.selectedValue)
@@ -76,7 +103,18 @@ export default {
   methods: {
     toggleOpen() {
       this.isOpen = !this.isOpen
-       this.searchChar = ''
+      this.searchChar = ''
+      this.searchTerm = ''
+      if (this.isOpen && this.searchEnabled) {
+        this.$nextTick(() => {
+          // Foca o campo para o teclado do celular abrir e rola para manter a lista visível.
+          this.$refs.searchInput?.focus({ preventScroll: true })
+          this.$el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        })
+      }
+    },
+    selectFirstMatch() {
+      if (this.visibleOptions.length) this.selectOption(this.visibleOptions[0])
     },
     selectOption(option) {
       this.selectedValue = option.value
@@ -90,6 +128,8 @@ export default {
       }
     },
     handleKey(e) {
+      // Com o campo de busca, a digitação vai para ele.
+      if (this.searchEnabled) return
       if (!this.isOpen || !e.key.match(/^[a-z0-9]$/i)) return
 
       this.searchChar += e.key.toLowerCase()
@@ -176,6 +216,32 @@ export default {
   overflow-y: auto;
   max-height: 40vh;
   margin-top:1vmin;
+}
+.dSelect-search {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 1vmin;
+  background-color: #f5f5f5;
+  border-bottom: .1vmin solid var(--sb-border-color);
+}
+.dSelect-search input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.2vmin 1.5vmin;
+  border: .1vmin solid var(--sb-border-color);
+  border-radius: 1vmin;
+  background: #fff;
+  /* 16px no mínimo: abaixo disso o Safari do iPhone dá zoom ao focar. */
+  font-size: max(16px, var(--font));
+  outline: none;
+}
+.dSelect-empty {
+  padding: 1.5vmin;
+  font-size: var(--font);
+  font-style: italic;
+  color: #777;
+  cursor: default;
 }
 .dSelect-option {
   padding:1.5vmin 1.5vmin;
