@@ -35,9 +35,25 @@
 
       <transition name="drapdownAnimate">
       <div v-if="isDropdownOpen" class="dropdown-menu">
+        <div v-if="searchEnabled" class="dropdown-search" @click.stop>
+          <input
+            ref="searchInput"
+            v-model="searchTerm"
+            type="search"
+            inputmode="search"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            :placeholder="texts.placeholder"
+            @keydown.stop
+            @keydown.esc.prevent="isDropdownOpen = false"
+          />
+        </div>
+        <div v-if="searchEnabled && !visibleOptions.length" class="dropdown-empty" @click.stop>{{ texts.empty }}</div>
         <div
           class="dropdown-item"
-          v-for="option in filteredOptions"
+          v-for="option in visibleOptions"
           :key="option.value"
           :class="{ selected: option.checked }"
           @click.stop="_onClick(option)"
@@ -54,6 +70,7 @@
 
 <script>
 import _ from "lodash";
+import { SEARCH_MIN_OPTIONS, matchesSearch, searchTexts } from "@/js/dropdownSearch";
 
 export default {
   props: ["name", "selected", "options", "placeholder", "setup"],
@@ -63,7 +80,9 @@ export default {
       isDropdownOpen: false,
       searchKey: "",
       localOptions: this.options.map(o => ({ ...o })),
-      searchTimeout: null
+      searchTimeout: null,
+      searchTerm: "",
+      texts: searchTexts()
     };
   },
   emits: ["update:selected"],
@@ -78,6 +97,13 @@ export default {
     },
     filteredOptions() {
       return this.options.filter(opt => opt.show)
+    },
+    searchEnabled() {
+      return this.filteredOptions.length > SEARCH_MIN_OPTIONS
+    },
+    visibleOptions() {
+      if (!this.searchEnabled) return this.filteredOptions
+      return this.filteredOptions.filter(opt => matchesSearch(opt.name, this.searchTerm))
     },
   },
   mounted() {
@@ -97,9 +123,16 @@ export default {
 
     toggleDropdown() {
       this.isDropdownOpen = !this.isDropdownOpen;
+      this.searchTerm = "";
       if (this.isDropdownOpen) {
         this.$nextTick(() => {
-          this.$refs.dropdownWrapper?.focus();
+          if (this.searchEnabled) {
+            // Foca o campo para o teclado do celular abrir e rola para manter a lista visível.
+            this.$refs.searchInput?.focus({ preventScroll: true });
+            this.$refs.dropdownWrapper?.scrollIntoView({ behavior: "smooth", block: "start" });
+          } else {
+            this.$refs.dropdownWrapper?.focus();
+          }
         });
       }
     },
@@ -295,6 +328,32 @@ export default {
   z-index: 10;
     margin-top:1vmin;
     
+}
+.dropdown-search {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 1vmin;
+  background-color: #f5f5f5;
+  border-bottom: .1vmin solid var(--sb-border-color);
+}
+.dropdown-search input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.2vmin 1.5vmin;
+  border: .1vmin solid var(--sb-border-color);
+  border-radius: 1vmin;
+  background: #fff;
+  /* 16px no mínimo: abaixo disso o Safari do iPhone dá zoom ao focar. */
+  font-size: max(16px, var(--font));
+  outline: none;
+  user-select: text;
+}
+.dropdown-empty {
+  padding: 1.5vmin;
+  font-size: var(--font);
+  font-style: italic;
+  color: #777;
 }
 .dropdown-item {
   display: flex;
